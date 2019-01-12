@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        #main {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script src="https://cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 获得绘图区域并进行初始化操作
+        var myChart = echarts.init($('#main')[0]);
+        // 通过Ajax请求获取数据
+        $.ajax({
+            'url': 'app/mysql_echarts/',
+            'type': 'get',
+            'data': {},
+            'dataType': 'json',
+            'success': function(jsonObj) {
+                // 指定图表的配置项和数据（通过Ajax请求获取）
+                var option = {
+                    title: {
+                        text: '地产经理人楼盘数量统计图'
+                    },
+                    tooltip: {},
+                    legend: {
+                        data:['房地产经理人']
+                    },
+                    xAxis: {
+                        data: jsonObj.names
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '楼盘数量',
+                        type: 'bar',
+                        data: jsonObj.totals
+                    }]
+                };
+                // 绑定数据显示图表
+                myChart.setOption(option);
+            }
+        });
+    </script>
+</body>
+</html>
