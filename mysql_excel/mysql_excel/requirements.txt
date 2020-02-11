@@ -4,7 +4,7 @@ celery==4.2.1
 certifi==2018.11.29
 chardet==3.0.4
 coverage==4.5.2
-Django==2.1.5
+Django==2.2.10
 django-cors-headers==2.4.0
 django-haystack==2.8.1
 django-redis==4.10.0
