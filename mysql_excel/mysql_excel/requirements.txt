@@ -14,7 +14,7 @@ elasticsearch==6.3.1
 idna==2.8
 itsdangerous==1.1.0
 kombu==4.2.2.post1
-Pillow==5.4.1
+Pillow==9.0.0
 PyMySQL==0.9.3
 pytz==2018.9
 redis==3.0.1
